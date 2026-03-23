@@ -1,0 +1,4 @@
+administer Atproto Client:
+  title: 'Administer Atproto Client'
+  description: 'Allows users to configure credentials for the  AT Protocol Client'
+  restrict access: true

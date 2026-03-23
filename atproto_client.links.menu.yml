@@ -1,0 +1,6 @@
+atproto_client.settings:
+  title: Atproto Client Settings
+  description: Configure Atproto Client
+  parent: system.admin_config_services
+  route_name: aatproto_client.settings
+  weight: 10
