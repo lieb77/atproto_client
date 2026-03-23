@@ -411,21 +411,21 @@ class AtprotoClient // implements AtprotoClientInterface
     	]);
     }
     
-    public function getFollowers()array $params): mixed {
+    public function getFollowers(array $params): mixed {
     	return $this->request('GET', $this->endpoints->getfollowers(), [
             'query' => $params,
     	]);
     
     }
     
-	public function getFollows()array $params): mixed {
+	public function getFollows(array $params): mixed {
     	return $this->request('GET', $this->endpoints->getfollows(), [
             'query' => $params,
     	]);
     
     }
     
-    public function getTimeline()array $params): mixed {
+    public function getTimeline(array $params): mixed {
     	return $this->request('GET', $this->endpoints->getTimeline(), [
             'query' => $params,
     	]);
@@ -433,14 +433,14 @@ class AtprotoClient // implements AtprotoClientInterface
     }
     
     
-     public function getAuthorFeed()array $params): mixed {
+     public function getAuthorFeed(array $params): mixed {
     	return $this->request('GET', $this->endpoints->getAuthorFeed(), [
             'query' => $params,
     	]);
     
     }
     
-    public function searchPosts()array $params): mixed {
+    public function searchPosts(array $params): mixed {
     	return $this->request('GET', $this->endpoints->searchPosts(), [
             'query' => $params,
     	]);
