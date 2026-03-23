@@ -403,6 +403,52 @@ class AtprotoClient // implements AtprotoClientInterface
             'query' => ['uri' => $uri, 'limit' => $limit],
         ]);
     }
+    
+    
+    public function getProfile(array $params): mixed {
+	    return $this->request('GET', $this->endpoints->getProfile(), [
+            'query' => $params,
+    	]);
+    }
+    
+    public function getFollowers()array $params): mixed {
+    	return $this->request('GET', $this->endpoints->getfollowers(), [
+            'query' => $params,
+    	]);
+    
+    }
+    
+	public function getFollows()array $params): mixed {
+    	return $this->request('GET', $this->endpoints->getfollows(), [
+            'query' => $params,
+    	]);
+    
+    }
+    
+    public function getTimeline()array $params): mixed {
+    	return $this->request('GET', $this->endpoints->getTimeline(), [
+            'query' => $params,
+    	]);
+    
+    }
+    
+    
+     public function getAuthorFeed()array $params): mixed {
+    	return $this->request('GET', $this->endpoints->getAuthorFeed(), [
+            'query' => $params,
+    	]);
+    
+    }
+    
+    public function searchPosts()array $params): mixed {
+    	return $this->request('GET', $this->endpoints->searchPosts(), [
+            'query' => $params,
+    	]);
+    
+    }
+    
+    
+    
     // End of class
 }
 
