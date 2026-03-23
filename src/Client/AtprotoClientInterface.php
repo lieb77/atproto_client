@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\pds_sync\Client;
+namespace Drupal\atproto_client\Client;
 
 /**
  * Defines a contract for the AT Protocol client.

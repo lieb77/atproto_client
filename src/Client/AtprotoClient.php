@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\arproto_client\Client;
+namespace Drupal\atproto_client\Client;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Config\ImmutableConfig;
@@ -11,11 +11,13 @@ use Drupal\Core\TempStore\PrivateTempStoreFactory;
 use Drupal\key\KeyRepositoryInterface;
 use GuzzleHttp\ClientInterface;
 use Drupal\atproto_client\Endpoints;
+// use Drupal\atproto_client\Client\AtprotoClientInterface; 
 
 /**
  * The AtprotoClient class implements the core services of this module.
  */
-class AtprotoClient implements AtprotoClientInterface {
+class AtprotoClient // implements AtprotoClientInterface 
+{
 
     /**
      * Immutable settings snapshot.
@@ -83,10 +85,10 @@ class AtprotoClient implements AtprotoClientInterface {
         PrivateTempStoreFactory $tempStore,
         protected EndPoints $endpoints
     ) {
-        $this->tempstore = $tempStore->get('pds_sync');
+        $this->tempstore = $tempStore->get('atproto_client');
 
         // Use the Factory to get our immutable settings.
-        $this->settings = $this->configFactory->get('pds_sync.settings');
+        $this->settings = $this->configFactory->get('atproto_client.settings');
 
 		$this->pdsUrl = "https://" . $this->settings->get('pds');
         $this->handle = $this->settings->get('handle');
@@ -218,7 +220,7 @@ class AtprotoClient implements AtprotoClientInterface {
      *   The DID to save.
      */
     private function saveDid(string $did): void {
-        $this->configFactory->getEditable('pds_sync.settings')
+        $this->configFactory->getEditable('atproto_client.settings')
             ->set('did', $did)
             ->save();
     }
@@ -365,7 +367,7 @@ class AtprotoClient implements AtprotoClientInterface {
      * shorthand for com.atproto.repo.listRecords (GET)
      */
     public function listRecords(array $params): mixed {
-        return $this->request('GET', $this->endpoints->listRecords(), [
+       return $this->request('GET', $this->endpoints->listRecords(), [
             'query' => $params,
         ]);
     }

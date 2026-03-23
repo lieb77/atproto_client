@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\pds_sync;
+namespace Drupal\atproto_client;
 
 /**
  * Returns endpoints for each function.

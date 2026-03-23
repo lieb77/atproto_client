@@ -60,7 +60,7 @@ final class SettingsForm extends ConfigFormBase
         '#type' => 'textfield',
         '#title' => $this->t('AT Proto PDS'),
         '#description' => $this->t('The PDS your Atproto account is hosted on.'),
-        '#default_value' => $config->get('handle') || "bsky.social",
+        '#default_value' => $config->get('pds'),
         ];
 
 
@@ -102,6 +102,7 @@ final class SettingsForm extends ConfigFormBase
     public function submitForm(array &$form, FormStateInterface $form_state): void
     {
         $this->config('atproto_client.settings')
+        	->set('pds', $form_state->getValue('pds'))
             ->set('handle', $form_state->getValue('handle'))
             ->set('app_key', $form_state->getValue('app_key'))
             ->save();
