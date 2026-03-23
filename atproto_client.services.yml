@@ -1,6 +1,6 @@
 services:
 
- logger.channel.atproto_client:
+  logger.channel.atproto_client:
     parent: logger.channel_base
     arguments: ['atproto_client']    
 
