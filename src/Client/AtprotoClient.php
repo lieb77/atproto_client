@@ -74,7 +74,7 @@ class AtprotoClient // implements AtprotoClientInterface
      *   The HTTP client.
      * @param \Drupal\Core\TempStore\PrivateTempStoreFactory $tempStore
      *   The tempstore factory.
-     * @param \Drupal\pds_sync\EndPoints $endpoints
+     * @param \Drupal\atproto_client\EndPoints $endpoints
      *   The endpoints service.
      */
     public function __construct(
