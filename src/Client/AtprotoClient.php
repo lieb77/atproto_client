@@ -345,13 +345,19 @@ class AtprotoClient // implements AtprotoClientInterface
     }
 
 
-/**
+	/**
      * shorthand for com.atproto.repo.putRecord (Usually POST)
      */
     public function putRecord(array $params): mixed {
-        return $this->request('POST', $this->endpoints->putRecord(), [
-            'json' => $params,
-        ]);
+
+    	try{
+	        return $this->request('POST', $this->endpoints->putRecord(), [
+    	        'json' => $params,
+        	]);
+        }catch (\Exception $e) { 
+			$this->logger->error("PutRecord failed with @err", ["@err" => $e]);
+			return FALSE;
+        }
     }
 
     /**
